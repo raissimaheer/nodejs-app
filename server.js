@@ -1,11 +1,13 @@
 const express = require('express');
 require('dotenv').config();
+const AuthRoutes = require('./routes/auth.routes');
 const mongoose = require('mongoose');
 //mongoose houa ODM (Object Data Modeling) pour MongoDB
 const app = express();
 const userRoutes = require('./routes/user.routes');
 
 app.use(express.json());
+app.use('/auth', AuthRoutes);
 
 app.use('/users', userRoutes);
 
